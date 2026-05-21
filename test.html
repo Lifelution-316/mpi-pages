@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2W2D9B6');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객 자동화 시스템 만들기 - 1인 기업의 필수 생존 전략</title>
+    
+    <!-- Tailwind CSS (스타일링) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (아이콘) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            word-break: keep-all; /* 한글 줄바꿈 최적화 */
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        /* 모달 애니메이션 */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: hidden !important;
+        }
+        
+        /* 모바일용 폰트 사이즈 조정 */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem !important; }
+            h2 { font-size: 1.75rem !important; }
+            h3 { font-size: 1.5rem !important; }
+            .mobile-text-sm { font-size: 0.875rem !important; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased relative pb-24 md:pb-0">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2W2D9B6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <!-- 네비게이션 -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 py-3 md:py-4">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <div class="text-lg md:text-xl font-bold text-slate-900 tracking-tighter">
+                라이프<span class="text-orange-600">루션</span>
+            </div>
+            <a href="#pricing" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-3 md:px-4 rounded-lg transition text-xs md:text-sm">
+                수강신청 하기
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. 히어로 섹션 (Hero Section) -->
+    <section class="relative pt-24 pb-16 md:pt-32 md:pb-20 bg-slate-900 text-white overflow-hidden">
+        <!-- 배경 효과 -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900"></div>
+
+        <div class="relative max-w-4xl mx-auto px-4 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-orange-600/20 text-orange-400 text-xs md:text-sm font-bold mb-4 md:mb-6 border border-orange-600/50">
+                ⚠️ 마케팅 비용만 날리고 계신 대표님 필독
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 md:mb-6 break-keep">
+                판매할 상품은 있는데,<br>
+                고객을 <span class="text-orange-500">어떻게 모아야</span> 할까요?
+            </h1>
+            <p class="text-base md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto break-keep">
+                밤낮없이 광고하거나 팔로워 늘려도 제자리걸음이라 고민이었다면,<br class="hidden md:block"><br>
+                <br class="hidden md:block">
+                <span class="text-white font-bold border-b-2 border-orange-500">인생을 바꿀 기회를 만나신 것</span>입니다.
+            </p>
+            <div class="flex flex-col md:flex-row gap-3 justify-center px-4 md:px-0">
+                <a href="#pricing" class="bg-orange-600 hover:bg-orange-700 text-white text-base md:text-lg font-bold py-3 md:py-4 px-6 md:px-8 rounded-xl shadow-lg shadow-orange-600/30 transition transform hover:scale-105 flex items-center justify-center gap-2 w-full md:w-auto">
+                    <span>마지막 5일간의 기회 놓치지 말기</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 증거와 권위 (Social Proof) -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            
+            <!-- 강사 소개 -->
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-20">
+                <div class="w-full md:w-1/2">
+                    <img src="https://media.swipepages.com/2025/11/6602364c0a66ca00106420f6/-----------2025-11-28------2-25-59-vlsera.webp" alt="강사 수익 인증" class="rounded-2xl shadow-2xl w-full object-cover hover:scale-[1.02] transition duration-500" onerror="this.src='https://via.placeholder.com/600x800?text=Revenue+Proof'; this.onerror=null;">
+                    <p class="text-center text-xs md:text-sm text-gray-500 mt-2">▲ 1인 기업 연매출 6억 원 달성 실제 인증</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-orange-600 font-bold mb-2 block text-sm md:text-base">INSTRUCTOR</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-4 md:mb-6 leading-tight break-keep">
+                        저도 1인 대행사로 시작해,<br>
+                        <span class="bg-yellow-100 px-1">연 매출 6억</span>을 만들었습니다.
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-4 md:mb-6 text-base md:text-lg break-keep">
+                        처음엔 어떻게 고객을 모으고 판매해야 할지 몰라 몇년의 시행착오를 겪었습니다.<br class="hidden md:block"><br class="md:hidden">
+                        하지만 치열한 연구와 고민, 검증을 통해 고객 유입부터 전환(판매 or 계약)까지 되게하는 <strong>'고객 자동화 시스템'</strong>을 만들수 있게 된 뒤로, 제 인생은 180도 달라졌습니다.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed text-base md:text-lg break-keep">
+                        제가 수천만 원의 시행착오 끝에 완성한,<br>
+                        <strong>'무한 고객 자동화 시스템'</strong>를 끊임없이 시도하는 용기있는 분에게만 그대로 알려 드리겠습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NEW: 실제 강의 후기 (텍스트) -->
+            <div class="mb-16 md:mb-24">
+                <div class="text-center mb-8 md:mb-10">
+                    <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">REAL REVIEWS</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-900 break-keep">거짓 없는 100% 실제 수강생 후기</h3>
+                    <p class="text-gray-500 mt-2 text-xs md:text-sm break-keep">강의 만족도 조사에서 수강생분들이 직접 남겨주신 내용입니다.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- 후기 1 -->
+                    <div class="bg-gray-50 p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex text-yellow-400 text-xs md:text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed break-keep">
+                            "우선 <span class="bg-yellow-100 font-bold">강의 내용이 좋았습니다.</span> 단편적인 한두가지 툴을 가르쳐 주는게 아닌 <span class="bg-yellow-100 font-bold">필요한 대부분을 알려주어서</span> 좋았습니다."
+                        </p>
+                    </div>
+                    <!-- 후기 2 -->
+                    <div class="bg-gray-50 p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex text-yellow-400 text-xs md:text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed break-keep">
+                            "<span class="bg-yellow-100 font-bold">세세한 내용의 강의</span>, 오프라인 모임과 상황에 따른 질의 응답까지 완벽했습니다."
+                        </p>
+                    </div>
+                    <!-- 후기 3 -->
+                    <div class="bg-gray-50 p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex text-yellow-400 text-xs md:text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed break-keep">
+                            "<span class="bg-yellow-100 font-bold">선생님의 시스템과 친절한 설명, 응대</span> 지금 이렇게 설문받으시는 이런 모습 다 최고에요 <span class="bg-yellow-100 font-bold">완전 팬이됐어요</span>"
+                        </p>
+                    </div>
+                    <!-- 후기 4 -->
+                    <div class="bg-gray-50 p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                        <div class="flex text-yellow-400 text-xs md:text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed break-keep">
+                            "<span class="bg-yellow-100 font-bold">강의 내용 자체(컨텐츠가 꽉 참)</span>가 너무 알차고 유익했습니다."
+                        </p>
+                    </div>
+                    <!-- 후기 5 -->
+                    <div class="bg-gray-50 p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                        <div class="text-slate-400 text-[10px] md:text-xs font-bold mb-2 uppercase tracking-wide">From. 수강생 자유 의견</div>
+                        <p class="text-gray-700 text-sm leading-relaxed break-keep">
+                            "일단 제가 뭘 모르는지 모르는 상태에서 <span class="bg-yellow-100 font-bold">이상하게 질문해도 성실히 답변해주시는 부분들</span>이 너무 좋았습니다. 모지리 뎃고 강의 하시느라 수고 많으셨습니다. 다음강의도 기대하겠습니다."
+                        </p>
+                    </div>
+                    <!-- 후기 6 -->
+                    <div class="bg-gray-50 p-5 md:p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                        <div class="text-slate-400 text-[10px] md:text-xs font-bold mb-2 uppercase tracking-wide">From. 수강생 자유 의견</div>
+                        <p class="text-gray-700 text-sm leading-relaxed break-keep">
+                            "쌤 저는 이 카톡자동화퍼널 꼭 완성할거예요 <span class="bg-yellow-100 font-bold">진짜 신세계에요</span> 대표님을 존경해요 진짜 감사해요"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 수강생 후기 (성과 인증) -->
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4">수강생들이 증명합니다</h2>
+                <p class="text-sm md:text-base text-gray-600">단 1~2달 만에 일어난 놀라운 변화를 확인하세요.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <!-- 후기 1 -->
+                <div class="bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="aspect-w-16 aspect-h-9 mb-4 overflow-hidden rounded-lg bg-gray-200">
+                        <img src="https://media.swipepages.com/2025/11/6602364c0a66ca00106420f6/-----------2025-11-28------2-09-38.webp" alt="수강생 후기 1200만원" class="object-contain w-full h-full" onerror="this.src='https://via.placeholder.com/400x300?text=Review+1'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-1 text-slate-800 break-keep">"수강 후에 7,700만 원 매출!"</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">ROAS가 700% 이상 돌파</p>
+                </div>
+
+                <!-- 후기 2 -->
+                <div class="bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="aspect-w-16 aspect-h-9 mb-4 overflow-hidden rounded-lg bg-gray-200">
+                        <img src="https://media.swipepages.com/2025/11/6602364c0a66ca00106420f6/-----------2025-11-28------2-09-43.webp" alt="수강생 후기 1억8천" class="object-contain w-full h-full" onerror="this.src='https://via.placeholder.com/400x300?text=Review+2'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-1 text-slate-800 break-keep">"1개월 만에 무료강의 신청자 800명 돌파"</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">강의 안들었으면 눈물흘릴뻔 했어요</p>
+                </div>
+
+                <!-- 후기 3 -->
+                <div class="bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="aspect-w-16 aspect-h-9 mb-4 overflow-hidden rounded-lg bg-gray-200">
+                        <img src="https://media.swipepages.com/2025/11/6602364c0a66ca00106420f6/-------------------3.webp" alt="수강생 후기 200만원" class="object-contain w-full h-full" onerror="this.src='https://via.placeholder.com/400x300?text=Review+3'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-1 text-slate-800 break-keep">"비싼 강의보다 훨씬 낫습니다"</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">실천해보니 벌써 200만 원 매출 발생</p>
+                </div>
+
+                <!-- 후기 4 -->
+                <div class="bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="aspect-w-16 aspect-h-9 mb-4 overflow-hidden rounded-lg bg-gray-200">
+                        <img src="https://media.swipepages.com/2025/11/6602364c0a66ca00106420f6/-------------------2.webp" alt="수강생 후기 600명" class="object-contain w-full h-full" onerror="this.src='https://via.placeholder.com/400x300?text=Review+4'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-bold text-lg md:text-xl mb-1 text-slate-800 break-keep">"1달 만에 1,200만원 매출!"</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">너무 소름돋는 변화에 놀랐습니다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW 4.5. 성장 로드맵 (Curriculum Vision) -->
+    <section class="py-16 md:py-20 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <p class="text-orange-600 font-bold tracking-widest uppercase mb-2 text-sm md:text-base">ROADMAP</p>
+                <h2 class="text-2xl md:text-4xl font-bold leading-tight text-slate-900 break-keep">
+                    6주 뒤, 당신의 비즈니스는<br>
+                    <span class="text-slate-800 border-b-4 border-orange-400 inline-block pb-1">이렇게 성장합니다</span>
+                </h2>
+                <p class="text-gray-500 mt-3 md:mt-4 text-sm md:text-base break-keep">단순한 강의가 아닙니다.<br class="md:hidden">고객를 모아서 돈을 버는 시스템을 장착하는 과정입니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Step 1 -->
+                <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <div class="absolute -top-3 -left-3 bg-slate-800 text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-sm md:text-base">1</div>
+                    <div class="text-orange-500 text-2xl md:text-3xl mb-3 md:mb-4"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">설계 & 진단</h3>
+                    <p class="text-gray-500 text-xs md:text-sm mb-3 md:mb-4 break-keep">내 사업의 이탈 구멍을 막고 필승 시나리오를 완성합니다.</p>
+                    <div class="bg-slate-100 rounded-lg p-2 md:p-3 text-[10px] md:text-xs text-slate-600 font-bold">
+                        <i class="fa-solid fa-check text-green-500 mr-1"></i> 고객 시나리오 블루프린트
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <div class="absolute -top-3 -left-3 bg-slate-800 text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-sm md:text-base">2</div>
+                    <div class="text-orange-500 text-2xl md:text-3xl mb-3 md:mb-4"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">구축 & 제작</h3>
+                    <p class="text-gray-500 text-xs md:text-sm mb-3 md:mb-4 break-keep">AI로 10분 만에 랜딩페이지를 만들고 영상 광고를 제작합니다.</p>
+                    <div class="bg-slate-100 rounded-lg p-2 md:p-3 text-[10px] md:text-xs text-slate-600 font-bold">
+                        <i class="fa-solid fa-check text-green-500 mr-1"></i> 고전환 랜딩페이지 완성
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <div class="absolute -top-3 -left-3 bg-slate-800 text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-sm md:text-base">3</div>
+                    <div class="text-orange-500 text-2xl md:text-3xl mb-3 md:mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">추적 & 자동화</h3>
+                    <p class="text-gray-500 text-xs md:text-sm mb-3 md:mb-4 break-keep">GTM으로 고객을 추적하고 CRM 자동화로 매출을 만듭니다.</p>
+                    <div class="bg-slate-100 rounded-lg p-2 md:p-3 text-[10px] md:text-xs text-slate-600 font-bold">
+                        <i class="fa-solid fa-check text-green-500 mr-1"></i> 자동 수익 시스템 가동
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 relative border-orange-200 ring-2 ring-orange-100">
+                    <div class="absolute -top-3 -left-3 bg-orange-500 text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-sm md:text-base">4</div>
+                    <div class="text-orange-500 text-2xl md:text-3xl mb-3 md:mb-4"><i class="fa-solid fa-crown"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">시각화 & 확장</h3>
+                    <p class="text-gray-500 text-xs md:text-sm mb-3 md:mb-4 break-keep">CEO 대시보드로 성과를 한눈에 보고 사업을 확장합니다.</p>
+                    <div class="bg-orange-50 rounded-lg p-2 md:p-3 text-[10px] md:text-xs text-orange-700 font-bold">
+                        <i class="fa-solid fa-check mr-1"></i> 매출 2배 스케일업
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오프라인 강점 -->
+            <div class="mt-8 bg-slate-900 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-white">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="bg-orange-600 text-[10px] md:text-xs font-bold px-2 py-1 rounded mb-2 inline-block">OFFLINE ONLY</span>
+                    <h4 class="text-lg md:text-2xl font-bold mb-2">오프라인 과정만의 특별한 혜택</h4>
+                    <p class="text-slate-300 text-xs md:text-base break-keep">온라인과 동일한 커리큘럼을 배우지만, <span class="text-white font-bold underline decoration-orange-500">강사가 내 노트북 화면을 직접 보고 즉시 피드백</span>해 드립니다. 시스템 구축 실패 확률 0%에 도전하세요.</p>
+                </div>
+                <a href="#pricing" class="bg-white text-slate-900 hover:bg-gray-100 font-bold py-3 px-6 rounded-xl transition text-sm whitespace-nowrap w-full md:w-auto text-center">
+                    오프라인 신청하기 <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW 4.6. 가치 입증 (Value Stack) -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <h3 class="text-center text-xl md:text-2xl font-bold mb-6 md:mb-8 text-slate-800 break-keep">이 모든 시스템을 외주로 맡긴다면?</h3>
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-200">
+                <ul class="space-y-4 mb-6">
+                    <li class="flex justify-between items-center text-gray-500 text-sm md:text-base">
+                        <span class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-orange-500"></i> 랜딩페이지 기획 및 제작</span>
+                        <span class="line-through decoration-red-400 text-xs md:text-sm">최소 50만원</span>
+                    </li>
+                    <li class="flex justify-between items-center text-gray-500 text-sm md:text-base">
+                        <span class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-orange-500"></i> 메타/SNS 영상 광고 제작</span>
+                        <span class="line-through decoration-red-400 text-xs md:text-sm">최소 50만원</span>
+                    </li>
+                    <li class="flex justify-between items-center text-gray-500 text-sm md:text-base">
+                        <span class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-orange-500"></i> CRM 자동화 시스템 구축</span>
+                        <span class="line-through decoration-red-400 text-xs md:text-sm">최소 200만원</span>
+                    </li>
+                    <li class="flex justify-between items-center text-gray-500 text-sm md:text-base">
+                        <span class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-orange-500"></i> GTM 데이터 분석 세팅</span>
+                        <span class="line-through decoration-red-400 text-xs md:text-sm">최소 100만원</span>
+                    </li>
+                </ul>
+                <div class="border-t border-gray-300 pt-6 flex justify-between items-end">
+                    <div class="text-left">
+                        <p class="text-xs md:text-sm text-gray-500 mb-1">시장 가치 합계</p>
+                        <p class="text-xl md:text-2xl font-bold text-gray-400 line-through decoration-red-500">400만 원 이상</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs md:text-sm text-orange-600 font-bold mb-1 animate-pulse">오늘만 적용되는 가격</p>
+                        <p class="text-3xl md:text-4xl font-black text-slate-900">69만 원~</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 text-xs md:text-sm mt-4 break-keep">직원 한 달 월급도 안 되는 비용으로, 평생 쓰는 자동화 시스템을 장착하세요.</p>
+        </div>
+    </section>
+
+    <!-- NEW 4.7. 강의 일정 안내 (Schedule) -->
+    <section class="py-16 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-8 md:mb-10">
+                <span class="bg-blue-100 text-blue-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">SCHEDULE</span>
+                <h3 class="text-xl md:text-3xl font-bold text-slate-900">강의 일정 안내</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <!-- 온라인 일정 -->
+                <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-lg md:text-xl"><i class="fa-solid fa-video"></i></div>
+                        <h4 class="text-base md:text-lg font-bold">온라인 라이브</h4>
+                    </div>
+                    <div class="space-y-2 md:space-y-3 text-sm text-gray-600">
+                        <p class="flex items-start gap-2"><i class="fa-regular fa-calendar text-blue-500 mt-1"></i> <strong>12월 11일(목) 개강</strong></p>
+                        <p class="flex items-start gap-2"><i class="fa-regular fa-clock text-blue-500 mt-1"></i> 매주 목요일 저녁 9시 ~ 10시 30분</p>
+                        <p class="text-xs text-gray-400 pl-6">* 공휴일 제외 / 녹화본 제공</p>
+                    </div>
+                </div>
+
+                <!-- 오프라인 일정 -->
+                <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-lg md:text-xl"><i class="fa-solid fa-chalkboard-user"></i></div>
+                        <h4 class="text-base md:text-lg font-bold">오프라인 실전</h4>
+                    </div>
+                    <div class="space-y-2 md:space-y-3 text-sm text-gray-600">
+                        <p class="flex items-start gap-2"><i class="fa-regular fa-calendar text-orange-500 mt-1"></i> <strong>12월 9일(화) 개강</strong></p>
+                        <p class="flex items-start gap-2"><i class="fa-regular fa-clock text-orange-500 mt-1"></i> 매주 화요일 오후 1시 ~ 6시</p>
+                        <p class="text-xs text-gray-400 pl-6">* 수강생 협의 시 일정 변경 가능</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 3. 상세 커리큘럼 (Curriculum Detail) -->
+    <section class="py-16 md:py-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <p class="text-orange-400 font-bold tracking-widest uppercase mb-2 text-sm md:text-base">CURRICULUM</p>
+                <h2 class="text-2xl md:text-5xl font-bold leading-tight mb-4 break-keep">
+                    6주 뒤, 당신의 사업은<br>
+                    <span class="text-gradient">완전히 달라집니다.</span>
+                </h2>
+                <p class="text-gray-400 text-sm md:text-base break-keep">이론만 배우는 강의가 아닙니다. 내 사업에 '시스템'을 설치하는 과정입니다.</p>
+            </div>
+
+            <div class="space-y-4 md:space-y-6">
+                <!-- 1주차 -->
+                <div class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-orange-500 transition duration-300">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div class="md:w-1/4 shrink-0">
+                            <span class="bg-orange-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">WEEK 01</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">[진단 & 설계]</h3>
+                            <p class="text-orange-400 font-bold text-xs md:text-sm">마케팅 누수 차단 및<br>필승 시나리오 설계</p>
+                        </div>
+                        <div class="md:w-3/4 border-l-0 border-t md:border-t-0 md:border-l border-slate-700 pl-0 md:pl-6 pt-4 md:pt-0 mt-0 md:mt-0">
+                            <p class="text-gray-300 italic mb-4 text-sm md:text-base break-keep">"밑 빠진 독에 물 붓기는 그만. 내 사업의 이탈 구멍을 찾고, 고객을 끝까지 붙잡아두는 설계도를 그립니다."</p>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>기존 마케팅 시나리오 정밀 진단 (Audit):</strong> 이탈 포인트 3곳 체크 및 개선안 도출</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>이탈을 줄이는 '고객 시나리오 블루프린트' 작성:</strong> 유입(영상)-설득(랜딩)-전환(자동화) 설계</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-flag text-blue-400 mt-1"></i> <span class="break-keep"><strong>[과제]</strong> 내 사업의 문제점 진단서 & New 고객 시나리오 블루프린트 완성</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2주차 -->
+                <div class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-orange-500 transition duration-300">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div class="md:w-1/4 shrink-0">
+                            <span class="bg-slate-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">WEEK 02</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">[구축]</h3>
+                            <p class="text-orange-400 font-bold text-xs md:text-sm">개발자 없이 누구나!<br>AI 원스톱 랜딩페이지</p>
+                        </div>
+                        <div class="md:w-3/4 border-l-0 border-t md:border-t-0 md:border-l border-slate-700 pl-0 md:pl-6 pt-4 md:pt-0 mt-0 md:mt-0">
+                            <p class="text-gray-300 italic mb-4 text-sm md:text-base break-keep">"기획안만 넣으면 코드가 나옵니다. 비개발자도 쉽고 강력한 AI 웹사이트 구축."</p>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>AI 코딩 도구 기초 실습:</strong> 대화하듯 웹사이트 만들기</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>모바일 최적화 고전환 랜딩페이지 생성:</strong>설득 페이지 및 신청 폼 배치</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-flag text-blue-400 mt-1"></i> <span class="break-keep"><strong>[실습]</strong> 고객 추적 셋팅 및 결제/신청 시스템 연동 테스트</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3주차 -->
+                <div class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-orange-500 transition duration-300">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div class="md:w-1/4 shrink-0">
+                            <span class="bg-slate-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">WEEK 03</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">[유입]</h3>
+                            <p class="text-orange-400 font-bold text-xs md:text-sm">원하는 고객을 불러오는<br>메타광고 운영 비법</p>
+                        </div>
+                        <div class="md:w-3/4 border-l-0 border-t md:border-t-0 md:border-l border-slate-700 pl-0 md:pl-6 pt-4 md:pt-0 mt-0 md:mt-0">
+                            <p class="text-gray-300 italic mb-4 text-sm md:text-base break-keep">"언제든지 원하는 고객을 불러올 수 있는 메타광고 운영 비법 습득"</p>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>누구나 쉽게 만들수 있는 영상 광고 제작 비법</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>메타광고 최적화 셋팅:</strong> 타겟에 맞는 가장 적합한 셋팅 및 운영 노하우</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-flag text-blue-400 mt-1"></i> <span class="break-keep"><strong>[과제]</strong> 인터뷰형 또는 스피치형 광고 영상 1개 제작 및 광고 셋팅 완료</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4주차 -->
+                <div class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-orange-500 transition duration-300">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div class="md:w-1/4 shrink-0">
+                            <span class="bg-slate-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">WEEK 04</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">[추적]</h3>
+                            <p class="text-orange-400 font-bold text-xs md:text-sm">감으로 하지 않는<br>'과학적 마케팅' (GTM)</p>
+                        </div>
+                        <div class="md:w-3/4 border-l-0 border-t md:border-t-0 md:border-l border-slate-700 pl-0 md:pl-6 pt-4 md:pt-0 mt-0 md:mt-0">
+                            <p class="text-gray-300 italic mb-4 text-sm md:text-base break-keep">"누가, 어디서 나가는지 알아야 고칠 수 있습니다. 구글 태그 매니저 완전 정복."</p>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>GTM 필수 태그 설치:</strong> 버튼 클릭률, 스크롤 깊이, 영상 조회율 추적</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>허수 DB를 거르는 데이터 필터링:</strong> '진성 고객' 맞춤 타겟 설정 및 디버깅 실습</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>더 향상된 메타광고 리타게팅 기법 실습</strong></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5주차 -->
+                <div class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-orange-500 transition duration-300">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div class="md:w-1/4 shrink-0">
+                            <span class="bg-slate-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">WEEK 05</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">[자동화]</h3>
+                            <p class="text-orange-400 font-bold text-xs md:text-sm">매출을 만드는<br>핵심 CRM 시나리오</p>
+                        </div>
+                        <div class="md:w-3/4 border-l-0 border-t md:border-t-0 md:border-l border-slate-700 pl-0 md:pl-6 pt-4 md:pt-0 mt-0 md:mt-0">
+                            <p class="text-gray-300 italic mb-4 text-sm md:text-base break-keep">"직원을 뽑지 마세요. 이 시스템이 직원 1명 몫을 해냅니다."</p>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>에어테이블 & 메이크 & 솔라피 연동 기초:</strong> 이론 최소화, 실전 연결 원리 학습</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>[필수 시나리오 5가지] 따라 하기 실습:</strong> 접수 알림, 노쇼 방지 리마인드, 입금 확인/독려, 고객 등급 자동 분류</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>[응용 시나리오 5가지] 녹화본 제공:</strong> 고객 통합 관리, 만족도 조사, 재구매 리마인드, 일일 리포트 전송, 이탈 고객 리마인드</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6주차 -->
+                <div class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-orange-500 transition duration-300">
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                        <div class="md:w-1/4 shrink-0">
+                            <span class="bg-slate-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">WEEK 06</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">[완성]</h3>
+                            <p class="text-orange-400 font-bold text-xs md:text-sm">CEO 대시보드 구축<br>& 시스템 런칭</p>
+                        </div>
+                        <div class="md:w-3/4 border-l-0 border-t md:border-t-0 md:border-l border-slate-700 pl-0 md:pl-6 pt-4 md:pt-0 mt-0 md:mt-0">
+                            <p class="text-gray-300 italic mb-4 text-sm md:text-base break-keep">"숫자가 보여야 사업이 큽니다. 한눈에 보는 마케팅 상황실."</p>
+                            <ul class="space-y-2 text-xs md:text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>에어테이블 인터페이스 대시보드:</strong> 신청자, 매출, ROAS 시각화</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span class="break-keep"><strong>최종 시스템 리허설 및 런칭:</strong> 유입부터 자동화까지 전 과정 테스트 및 오류 수정</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 옵션 선택 및 가격 (Offer & Pricing) -->
+    <section id="pricing" class="py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
+        
+        <!-- 배경 데코레이션 -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-10 md:mb-12">
+                <span class="bg-red-600 text-white font-bold px-4 py-1 rounded-full text-xs md:text-sm animate-pulse inline-block mb-4 shadow-lg shadow-red-600/30">
+                    🚨 딱 5일간만 신청받고 올해 마감!
+                </span>
+                <h2 class="text-2xl md:text-5xl font-bold mb-3 md:mb-4 break-keep">당신에게 딱 맞는 무기를 선택하세요</h2>
+                <p class="text-gray-400 text-sm md:text-base">내년에는 가격이 인상됩니다. 지금이 가장 저렴합니다.</p>
+            </div>
+
+            <!-- 3가지 옵션 그리드 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-end">
+                
+                <!-- Option 1: 온라인 라이브 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-slate-500 transition relative flex flex-col h-auto order-2 md:order-1">
+                    <h3 class="text-xl font-bold mb-2 text-gray-200">온라인 라이브 강의</h3>
+                    <p class="text-gray-500 text-xs mb-6 h-8 break-keep">지방 거주 혹은 반복 학습이 필요한 분들을 위한 실속 패키지</p>
+                    
+                    <div class="my-4">
+                        <p class="text-gray-500 line-through text-sm">990,000원</p>
+                        <div class="flex items-end gap-2">
+                            <span class="text-3xl font-bold text-white">690,000원</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-gray-400 text-sm flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span>6주 Zoom 라이브 참여</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span>다시보기 2년간 무제한 제공</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span>실습 템플릿 전체 제공</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-shield text-blue-400 mt-1"></i> <span>1주차 불만족 시 환불</span></li>
+                    </ul>
+
+                    <button onclick="openModal('온라인 라이브 강의', 'https://www.payapp.kr/L/z43TjA')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-xl transition text-sm">
+                        온라인 수강신청
+                    </button>
+                </div>
+
+                <!-- Option 2: 온라인 + 피드백 (BEST) -->
+                <div class="bg-white text-slate-900 rounded-3xl p-6 md:p-8 border-4 border-orange-500 relative shadow-2xl flex flex-col transform md:-translate-y-4 z-10 order-1 md:order-2">
+                    <div class="absolute top-0 inset-x-0 -mt-4 flex justify-center">
+                        <span class="bg-orange-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">가성비 추천 (BEST)</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-2 text-slate-900">온라인 + 피드백 1회</h3>
+                    <p class="text-gray-500 text-xs mb-6 h-8 break-keep">온라인의 편리함에 전문가의 1:1 맞춤 진단을 더했습니다.</p>
+                    
+                    <div class="my-4">
+                        <p class="text-gray-400 line-through text-sm">1,290,000원</p>
+                        <div class="flex items-end gap-2">
+                            <span class="text-4xl font-black text-orange-600">790,000원</span>
+                        </div>
+                        <p class="text-red-500 text-xs font-bold mt-1">단 10만 원 추가로 4시간 컨설팅 혜택</p>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-slate-700 text-sm flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1"></i> <span class="font-bold">온라인 라이브 강의 혜택 포함</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-crown text-orange-500 mt-1"></i> <span class="bg-orange-100 px-1 font-bold">오프라인 피드백 데이 (4H)</span></li>
+                        <li class="text-xs text-gray-500 pl-6 mb-1">- 6주 종강 후 직접 만나서 내 사업 진단</li>
+                        <li class="text-xs text-gray-500 pl-6">- 막힌 부분 1:1 Q&A 및 맞춤 솔루션</li>
+                        <li class="text-xs text-gray-500 pl-6">- 강사 및 동기들과 네트워킹 뒤풀이</li>
+                    </ul>
+
+                    <button onclick="openModal('온라인 + 피드백 1회', 'https://www.payapp.kr/L/z43Tk1')" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-xl shadow-lg transition animate-bounce-custom text-lg">
+                        피드백 패키지 신청하기
+                    </button>
+                </div>
+
+                <!-- Option 3: 오프라인 실전 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-600 hover:border-slate-400 transition relative flex flex-col h-auto order-3 md:order-3">
+                    <div class="absolute top-0 right-0 bg-slate-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">소수정예 5인</div>
+                    
+                    <h3 class="text-xl font-bold mb-2 text-gray-200">오프라인 실전 강의</h3>
+                    <p class="text-gray-500 text-xs mb-6 h-8 break-keep">강제성이 부여된 환경에서 끝까지 완주하고 싶다면</p>
+                    
+                    <div class="my-4">
+                        <p class="text-gray-500 line-through text-sm">1,790,000원</p>
+                        <div class="flex items-end gap-2">
+                            <span class="text-3xl font-bold text-white">1,490,000원</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8 text-gray-400 text-sm flex-1">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 mt-1"></i> <span>매주 오프라인 대면 강의</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 mt-1"></i> <span>실시간 화면 공유 및 밀착 코칭</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-slate-400 mt-1"></i> <span>즉각적인 오류 해결 및 대행급 세팅</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-shield text-blue-400 mt-1"></i> <span>1주차 불만족 시 환불 (실비제외)</span></li>
+                    </ul>
+
+                    <button onclick="openModal('오프라인 실전 강의', 'https://www.payapp.kr/L/z43Tl0')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-xl transition text-sm">
+                        오프라인 신청하기
+                    </button>
+                </div>
+
+            </div>
+            
+            <p class="text-center text-gray-500 text-xs mt-8">
+                * 모든 강의는 카드 결제 및 할부 가능합니다. (세금계산서 발행 가능)
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. 환불 정책 (Risk Reversal) -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-6 break-keep">단, 강의 내용이 별로면 <br class="md:hidden">돈 받지 않겠습니다.</h3>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-200">
+                <i class="fa-solid fa-shield-halved text-4xl md:text-5xl text-blue-900 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2 text-blue-900">100% 환불 보장 제도</h4>
+                <p class="text-gray-600 mb-4 text-sm md:text-base break-keep">
+                    강의 1주 차를 들어보시고, 나와 맞지 않는다 판단되시면<br class="hidden md:block">
+                    <strong>묻지도 따지지도 않고 환불해 드립니다.</strong>
+                </p>
+                <p class="text-[10px] md:text-xs text-gray-400 break-keep">
+                    * 오프라인의 경우 대관료 등 실비 10만 원 제외 후 환불됩니다.<br>
+                    그만큼 자신 있습니다. 여러분은 <strong>실행할 열정</strong>만 가져오세요.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">자주 묻는 질문</h2>
+            
+            <div class="space-y-4">
+                <details class="group bg-gray-50 p-5 md:p-6 rounded-xl cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-base md:text-lg list-none">
+                        <span>Q. 컴퓨터를 잘 못 다루는데 괜찮을까요?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed text-sm md:text-base break-keep">
+                        네, 가능합니다. 그래서 '따라 하기만 하면 되는' 실습 위주로 구성했습니다. 정 어렵다면 옆에서 화면을 봐드릴 수 있는 오프라인 강의를 추천합니다.
+                    </p>
+                </details>
+
+                <details class="group bg-gray-50 p-5 md:p-6 rounded-xl cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-base md:text-lg list-none">
+                        <span>Q. 제 업종에도 적용 가능할까요?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed text-sm md:text-base break-keep">
+                        고객을 모아야 하는 모든 업종(교육 콘텐츠, 코칭, 대행사, 가맹점 모집 등)에 적용 가능한 만능 치트키입니다. 원리는 동일합니다.
+                    </p>
+                </details>
+
+                <details class="group bg-gray-50 p-5 md:p-6 rounded-xl cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-base md:text-lg list-none">
+                        <span>Q. 오프라인 강의 장소는 어디인가요?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed text-sm md:text-base break-keep">
+                        신청자분들께 개별 공지드리며, 접근성이 좋은 서울 주요 거점(강남, 역삼 인근)에서 진행될 예정입니다.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-slate-900 text-slate-500 py-10 md:py-12 text-xs md:text-sm text-center pb-28 md:pb-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-3 md:mb-4">© 2025 고객 자동화 시스템 만들기. All rights reserved.</p>
+            <p>본 사이트의 콘텐츠는 저작권법의 보호를 받습니다. 무단 전재 및 배포를 금합니다.</p>
+        </div>
+    </footer>
+
+    <!-- 하단 고정 바 (모바일용 Sticky Bar) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 md:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div class="flex flex-col gap-2">
+            <div class="text-center text-xs font-bold text-red-500 animate-pulse">
+                ⏰ 마감까지 <span id="countdown">04일 23:59:59</span> 남았습니다
+            </div>
+            <a href="#pricing" class="w-full bg-orange-600 text-white font-bold py-3 rounded-lg text-center shadow-lg">
+                지금 바로 할인받고 신청하기
+            </a>
+        </div>
+    </div>
+
+    <!-- 신청 폼 모달 (Modal) -->
+    <div id="applicationModal" class="modal fixed inset-0 z-[60] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 px-4">
+        <!-- 배경 오버레이 -->
+        <div class="absolute inset-0 bg-black bg-opacity-70" onclick="closeModal()"></div>
+        
+        <!-- 모달 콘텐츠 -->
+        <div class="bg-white rounded-2xl w-full max-w-md p-6 relative z-10 shadow-2xl transform transition-transform duration-300 scale-95" id="modalContent">
+            <!-- 닫기 버튼 -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-slate-900">수강 신청서</h3>
+                <p class="text-sm text-gray-500 mt-1">신청 정보를 입력해주시면 결제 페이지로 이동합니다.</p>
+                <div class="mt-3 inline-block bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full text-center max-w-full break-keep" id="selectedPlanDisplay">
+                    선택한 강의명
+                </div>
+            </div>
+
+            <form id="applicationForm" class="space-y-4" onsubmit="return false;">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">성함</label>
+                    <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition" placeholder="홍길동">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">연락처</label>
+                    <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition" placeholder="010-1234-5678">
+                </div>
+                <div>
+                    <label for="job" class="block text-sm font-medium text-gray-700 mb-1">하시는 일</label>
+                    <input type="text" id="job" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition" placeholder="예: 마케팅 대행사 대표, 1인 강사 등">
+                </div>
+
+                <div class="pt-2">
+                    <button type="button" onclick="submitApplication()" id="submitBtn" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-xl transition shadow-lg flex justify-center items-center gap-2">
+                        <span>결제하기</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-400 text-center mt-2 break-keep">
+                    * 입력하신 정보는 강의 운영 목적으로만 사용됩니다.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <script>
+        // 카운트다운 타이머
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 5);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                if(document.getElementById("countdown")) {
+                    document.getElementById("countdown").innerText = "마감되었습니다";
+                }
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if(document.getElementById("countdown")) {
+                document.getElementById("countdown").innerText = 
+                    `${String(days).padStart(2, '0')}일 ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 모달 및 신청 로직
+        let selectedPlanName = '';
+        let selectedPaymentUrl = '';
+        const webhookUrl = 'https://hook.eu2.make.com/wyz1w9bmbopcx1fq6992hu7zvocbbyk7';
+
+        function openModal(planName, paymentUrl) {
+            selectedPlanName = planName;
+            selectedPaymentUrl = paymentUrl;
+            
+            document.getElementById('selectedPlanDisplay').innerText = planName;
+            
+            const modal = document.getElementById('applicationModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.classList.add('modal-active');
+            
+            // 모달 내용 팝업 효과
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('applicationModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.classList.remove('modal-active');
+            
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+        }
+
+        async function submitApplication() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const job = document.getElementById('job').value;
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!name || !phone || !job) {
+                alert('모든 항목을 입력해주세요.');
+                return;
+            }
+
+            // 로딩 상태 표시
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 처리중...';
+
+            try {
+                // 웹훅 전송
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        job: job,
+                        plan: selectedPlanName,
+                        date: new Date().toISOString()
+                    })
+                });
+
+                if (response.ok) {
+                    // 성공 시 결제 페이지 이동
+                    window.location.href = selectedPaymentUrl;
+                } else {
+                    throw new Error('전송 실패');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('신청 접수 중 오류가 발생했습니다. 다시 시도해주시거나 문의 부탁드립니다.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
+    </script>
+</body>
+</html>
