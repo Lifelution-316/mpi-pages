@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>메타육아연구소 무료특강 신청</title>
+<meta name="description" content="메타육아연구소 무료특강 신청 페이지" />
+<meta property="og:title" content="메타육아연구소 무료특강" />
+<meta property="og:image" content="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/001-5pkn8w-1500.webp" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --page-bg: #f5f5f5;
+    --text: #111111;
+    --text-sub: #555555;
+    --border: #d9d9d9;
+    --border-strong: #333333;
+    --accent: #ff4d4d;
+    --accent-hover: #e63939;
+    --cta-bg: #1f1f1f;
+    --cta-bg-hover: #000000;
+    --input-bg: #ffffff;
+    --error: #e02020;
+    --container-max: 500px;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+      "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--container-max);
+    background: var(--bg);
+    margin: 0 auto;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.04);
+    position: relative;
+  }
+
+  /* 상단 고정 신청하기 버튼 */
+  .top-cta {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    transition: background 0.15s ease;
+  }
+  .top-cta:hover {
+    background: var(--accent-hover);
+  }
+
+  /* 이미지 스택 */
+  .image-stack {
+    display: block;
+    width: 100%;
+  }
+  .image-stack img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  /* 신청 폼 영역 */
+  .form-section {
+    padding: 28px 22px 32px;
+    background: #ffffff;
+  }
+  .form-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+  }
+  .form-subtitle {
+    font-size: 13px;
+    color: var(--text-sub);
+    margin: 0 0 22px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+  .field label .req {
+    color: var(--accent);
+    margin-left: 2px;
+  }
+
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .field input[type="text"]:focus,
+  .field input[type="tel"]:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--border-strong);
+  }
+  .field textarea {
+    min-height: 80px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+
+  /* 전화번호 3분할 */
+  .tel-group {
+    display: grid;
+    grid-template-columns: 1fr 12px 1fr 12px 1fr;
+    align-items: center;
+    gap: 0;
+  }
+  .tel-group input {
+    text-align: center;
+  }
+  .tel-group .dash {
+    text-align: center;
+    color: #888;
+    font-weight: 600;
+  }
+
+  /* 동의 체크박스 */
+  .agree-block {
+    margin-top: 18px;
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+  }
+  .agree-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 0;
+  }
+  .agree-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1.4;
+  }
+  .agree-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .agree-row .view-btn {
+    font-size: 12px;
+    color: #888;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 4px 6px;
+    font-family: inherit;
+  }
+
+  .agree-detail {
+    display: none;
+    margin: 6px 0 4px;
+    padding: 10px 12px;
+    background: #fafafa;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    font-size: 11.5px;
+    color: #666;
+    line-height: 1.55;
+    max-height: 160px;
+    overflow-y: auto;
+    white-space: pre-line;
+  }
+  .agree-detail.open {
+    display: block;
+  }
+
+  /* 제출 버튼 */
+  .submit-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 16px 20px;
+    border: 0;
+    background: var(--cta-bg);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.05s ease;
+  }
+  .submit-btn:hover {
+    background: var(--cta-bg-hover);
+  }
+  .submit-btn:active {
+    transform: translateY(1px);
+  }
+  .submit-btn:disabled {
+    background: #c0c0c0;
+    cursor: not-allowed;
+  }
+
+  /* 에러 메시지 */
+  .field.error input,
+  .field.error textarea,
+  .field.error select {
+    border-color: var(--error);
+  }
+  .err-msg {
+    display: none;
+    font-size: 11.5px;
+    color: var(--error);
+    margin-top: 4px;
+  }
+  .field.error .err-msg {
+    display: block;
+  }
+
+  /* 하단 이미지 */
+  .bottom-image {
+    width: 100%;
+    display: block;
+  }
+  .bottom-image img {
+    width: 100%;
+    display: block;
+  }
+
+  /* 푸터 */
+  .footer {
+    padding: 18px 20px 32px;
+    text-align: center;
+    color: #999;
+    font-size: 11px;
+    line-height: 1.5;
+    background: #fafafa;
+  }
+
+  /* 토스트 */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(20, 20, 20, 0.92);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 24px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ═══════ 변동 정보 박스 (매주 수정 영역) ═══════ */
+  .info-block {
+    padding: 44px 22px 36px;
+    background: #ffffff;
+    text-align: center;
+  }
+  .info-heading {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin: 0 0 26px;
+    color: #111;
+    letter-spacing: -0.7px;
+  }
+  .info-heading-emphasis {
+    color: #ee1c25;
+  }
+  .info-card {
+    background: #ffec2d;
+    border-radius: 6px;
+    padding: 24px 22px 20px;
+    margin: 0 auto 34px;
+    text-align: left;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+  }
+  .info-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .info-card ul li {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #111;
+    line-height: 2;
+    letter-spacing: -0.4px;
+    word-break: keep-all;
+  }
+  .info-card ul li .arrow {
+    display: inline-block;
+    margin-right: 2px;
+    font-weight: 900;
+  }
+  .info-card ul li strong {
+    font-weight: 900;
+  }
+  .info-card .fee {
+    color: #ee1c25;
+    font-weight: 900;
+  }
+  .info-warning {
+    margin: 16px 0 0;
+    padding-top: 14px;
+    border-top: 1.5px dashed rgba(0,0,0,0.18);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.6;
+    color: #111;
+    letter-spacing: -0.4px;
+  }
+  .info-apply-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: #ee1c25;
+    margin: 0 0 18px;
+    letter-spacing: -0.7px;
+  }
+  .info-apply-desc {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.75;
+    color: #2a2a2a;
+    margin: 0 0 22px;
+    letter-spacing: -0.4px;
+  }
+  .info-arrow {
+    font-size: 32px;
+    color: #ee1c25;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: 4px;
+    animation: arrowBounce 1.4s ease-in-out infinite;
+  }
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* 데스크탑 보정 */
+  @media (min-width: 768px) {
+    body {
+      padding: 0;
+    }
+    .container {
+      margin: 0 auto;
+    }
+  }
+</style>
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 📊 트래킹 코드                                                       -->
+<!--   ① Google Analytics 4 : 활성화됨 (G-76NV5RQ3C8)                     -->
+<!--   ② Microsoft Clarity   : 대기 (Project ID 발급 후 주석 해제 + 교체) -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-76NV5RQ3C8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-76NV5RQ3C8', {
+    'anonymize_ip': true,
+    'page_title': '메타육아연구소 무료특강 LP'
+  });
+</script>
+
+<!-- Microsoft Clarity (대기 — Project ID 발급 후 아래 주석 해제 및 ID 교체) -->
+<!--
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+</script>
+-->
+
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- 상단 신청하기 버튼 (sticky) -->
+    <a href="#form-section" class="top-cta">📌 무료특강 신청하기</a>
+
+    <!-- 메인 이미지 스택 (자체 호스팅, srcset 다중 해상도) -->
+    <div class="image-stack">
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/001-5pkn8w-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/001-5pkn8w-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/001-5pkn8w-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 1" loading="eager" />
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/002-autj2b-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/002-autj2b-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/002-autj2b-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 2" loading="lazy" />
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/003-fgvg27-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/003-fgvg27-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/003-fgvg27-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 3" loading="lazy" />
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/004-p4w7cu-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/004-p4w7cu-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/004-p4w7cu-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 4" loading="lazy" />
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/005-hi1rbk-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/005-hi1rbk-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/005-hi1rbk-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 5" loading="lazy" />
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/006-lm573r-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/006-lm573r-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/006-lm573r-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 6" loading="lazy" />
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/007-ov3btw-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/007-ov3btw-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/007-ov3btw-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소 무료특강 7" loading="lazy" />
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════════ -->
+    <!-- ⚠️  매주 수정하는 영역 — 무료특강 정보  ⚠️                          -->
+    <!-- 아래 5개 span의 텍스트만 수정하시면 됩니다.                          -->
+    <!--   #w-title    : 특강명                                              -->
+    <!--   #w-datetime : 일시                                                -->
+    <!--   #w-location : 장소                                                -->
+    <!--   #w-fee      : 비용                                                -->
+    <!--   #w-account  : 계좌                                                -->
+    <!-- HTML 구조나 클래스명은 건드리지 마세요.                              -->
+    <!-- ════════════════════════════════════════════════════════════════ -->
+    <section class="info-block" id="weekly-info">
+      <h2 class="info-heading">
+        10년간 전문가들과 교류하며<br>
+        <span class="info-heading-emphasis">만든 자료 입니다.</span>
+      </h2>
+
+      <div class="info-card">
+        <ul>
+          <li><span class="arrow">▶</span> <strong>특강명:</strong> <span id="w-title">ADHD 실전 훈육법 특강</span></li>
+          <li><span class="arrow">▶</span> <strong>일시:</strong> <span id="w-datetime">5월 29일 금요일 저녁 9시</span></li>
+          <li><span class="arrow">▶</span> <strong>장소:</strong> <span id="w-location">온라인 Zoom</span></li>
+          <li><span class="arrow">▶</span> <strong>비용:</strong> <span class="fee" id="w-fee">1만원</span></li>
+          <li><span class="arrow">▶</span> <strong>계좌:</strong> <span id="w-account">신한은행_한지희_ 110408720300</span></li>
+        </ul>
+        <p class="info-warning">
+          * 계좌입금 하시고 신청서 제출까지 완료<br>
+          하셔야 특강 줌링크가 발송됩니다!!
+        </p>
+      </div>
+
+      <h3 class="info-apply-title">신청방법</h3>
+      <p class="info-apply-desc">
+        아래 신청폼을<br>
+        작성하신 후<br>
+        제출하시면 됩니다.
+      </p>
+      <div class="info-arrow" aria-hidden="true">▼</div>
+    </section>
+    <!-- ════════════════════════════════════════════════════════════════ -->
+
+    <!-- 신청 폼 -->
+    <section id="form-section" class="form-section">
+      <h2 class="form-title">무료특강 신청</h2>
+      <p class="form-subtitle">아래 정보를 입력해주시면 무료특강 안내를 보내드립니다.</p>
+
+      <div class="field" data-field="name">
+        <label for="f_name">이름<span class="req">*</span></label>
+        <input id="f_name" type="text" placeholder="홍길동" autocomplete="name" />
+        <div class="err-msg">이름을 입력해주세요.</div>
+      </div>
+
+      <div class="field" data-field="tel">
+        <label>연락처<span class="req">*</span></label>
+        <div class="tel-group">
+          <input id="f_tel1" type="tel" inputmode="numeric" maxlength="3" value="010" />
+          <span class="dash">-</span>
+          <input id="f_tel2" type="tel" inputmode="numeric" maxlength="4" placeholder="0000" />
+          <span class="dash">-</span>
+          <input id="f_tel3" type="tel" inputmode="numeric" maxlength="4" placeholder="0000" />
+        </div>
+        <div class="err-msg">올바른 연락처를 입력해주세요.</div>
+      </div>
+
+      <div class="field" data-field="trouble">
+        <label for="f_trouble">어떤 어려움을 겪고 계신가요?<span class="req">*</span></label>
+        <textarea id="f_trouble" placeholder="자녀와의 관계, 훈육, 정서, 학습 등 현재 가장 고민되는 부분을 자유롭게 적어주세요."></textarea>
+        <div class="err-msg">내용을 입력해주세요.</div>
+      </div>
+
+      <div class="field" data-field="effort">
+        <label for="f_effort">위의 어려움을 해결하기 위해 어떤 노력을 해보셨나요?</label>
+        <textarea id="f_effort" placeholder="책, 강의, 상담 등 그동안 시도해보신 것들을 알려주세요."></textarea>
+      </div>
+
+      <div class="field" data-field="source">
+        <label for="f_source">유튜브, SNS, 네이버 중 무엇을 보고 오셨나요?</label>
+        <select id="f_source">
+          <option value="">유입 경로를 선택해주세요</option>
+          <option value="youtube">유튜브</option>
+          <option value="instagram">인스타그램</option>
+          <option value="sns_other">기타 SNS</option>
+          <option value="naver">네이버</option>
+          <option value="recommend">지인 추천</option>
+          <option value="other">기타</option>
+        </select>
+      </div>
+
+      <!-- Honeypot (봇 차단용 - 사람에게는 보이지 않음) -->
+      <div style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden" aria-hidden="true">
+        <label for="hp_website">웹사이트 (입력하지 마세요)</label>
+        <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <!-- 동의 체크박스 -->
+      <div class="agree-block">
+        <div class="agree-row">
+          <label>
+            <input type="checkbox" id="agree_terms" />
+            <span>이용약관 동의 <span class="req">*</span></span>
+          </label>
+          <button type="button" class="view-btn" data-target="terms-detail">보기</button>
+        </div>
+        <div id="terms-detail" class="agree-detail">
+제 1 장 총칙
+제 1 조 (목적) 이 약관은 이 페이지의 이용에 관한 조건 및 절차와 기타 필요한 사항을 규정하는 것을 목적으로 합니다.
+제 2 조 (용어의 정의) 이 약관에서 사용하는 용어의 정의는 일반적인 관례에 따릅니다.
+제 3 조 (약관의 효력과 변경) 본 약관은 게시함으로써 효력이 발생합니다.
+제 4 조 (약관외 준칙) 이 약관에 명시되지 않은 사항이 관계 법령에 규정되어 있을 경우 그 규정에 따르며, 그렇지 않은 경우에는 일반적인 관례에 따릅니다.
+
+제 2 장 서비스 이용
+제 5 조 (이용계약의 성립) 이용자가 본 약관에 동의하고 신청서를 제출함으로써 이용계약이 성립됩니다.
+제 6 조 (서비스 이용시간) 서비스 이용시간은 운영자의 사정에 따라 변경될 수 있습니다.
+제 7 조 (서비스의 중지 및 제한) 운영자는 사전 통지 후 서비스를 일시 중지할 수 있습니다.
+
+제 3 장 의무
+제 8 조 (개인정보 보호) 운영자는 이용자의 개인정보를 관련 법령에 따라 안전하게 관리합니다.
+제 9 조 (이용자의 의무) 이용자는 정확한 정보를 제공해야 합니다.
+
+제 4 장 면책
+제 10 조 (게재된 자료에 대한 권리) 본 페이지에 게재된 자료의 저작권은 운영자에게 있습니다.
+제 11 조 (면책) 천재지변, 불가항력 등의 사유로 인한 서비스 중단에 대해서는 책임을 지지 않습니다.
+        </div>
+
+        <div class="agree-row">
+          <label>
+            <input type="checkbox" id="agree_privacy" />
+            <span>개인정보 수집·이용 동의 <span class="req">*</span></span>
+          </label>
+          <button type="button" class="view-btn" data-target="privacy-detail">보기</button>
+        </div>
+        <div id="privacy-detail" class="agree-detail">
+개인정보취급방침은 다음과 같은 내용을 담고 있습니다.
+
+가. 수집하는 개인정보 항목 및 수집방법
+  - 신청자 이름, 핸드폰 번호
+  - 신청 폼을 통한 직접 입력 방식
+
+나. 개인정보의 수집 및 이용 목적
+  - 무료특강 안내 및 상담
+  - 담당자의 전화/문자 상담
+
+다. 수집한 개인정보의 보유 및 이용기간
+  - 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.
+  - 단, 관계 법령에 의해 보존 의무가 있는 경우 해당 기간 동안 보관됩니다.
+
+라. 동의를 거부할 권리 및 거부 시 불이익
+  - 본 동의를 거부할 권리가 있으며, 동의를 거부할 경우 무료특강 신청이 제한됩니다.
+        </div>
+      </div>
+
+      <button type="button" class="submit-btn" id="submitBtn">📝 무료특강 신청하기</button>
+    </section>
+
+    <!-- 하단 마무리 이미지 -->
+    <div class="bottom-image">
+      <img src="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/008-vsg7oi-1500.webp"
+           srcset="https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/008-vsg7oi-500.webp 500w,
+                   https://lifelutioncokr.swipepages.media/2026/5/6602364c0a66ca00106420f6/008-vsg7oi-1500.webp 1500w"
+           sizes="(max-width: 500px) 100vw, 500px"
+           alt="메타육아연구소" loading="lazy" />
+    </div>
+
+    <div class="footer">
+      © 메타육아연구소. All rights reserved.
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+  // ════════════════════════════════════════════════════════════════
+  // 📊 트래킹 이벤트 헬퍼
+  // ════════════════════════════════════════════════════════════════
+  function track(eventName, params = {}) {
+    // GA4
+    if (typeof gtag !== 'undefined') {
+      gtag('event', eventName, params);
+    }
+    // Clarity custom tag (Clarity는 set 키 길이 제한 → JSON 문자열 컷)
+    if (typeof clarity !== 'undefined') {
+      clarity('set', eventName, JSON.stringify(params).slice(0, 100));
+    }
+    // 디버깅용 - 배포 안정화 후 제거 권장
+    console.log('[track]', eventName, params);
+  }
+
+  // ── 스크롤 깊이 추적 (25/50/75/100%) ──
+  const SCROLL_DEPTHS = [25, 50, 75, 100];
+  const trackedDepths = new Set();
+  let scrollTimer = null;
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const h = document.documentElement;
+      const scrollHeight = h.scrollHeight - h.clientHeight;
+      if (scrollHeight <= 0) return;
+      const percent = Math.round((h.scrollTop / scrollHeight) * 100);
+      SCROLL_DEPTHS.forEach(d => {
+        if (percent >= d && !trackedDepths.has(d)) {
+          trackedDepths.add(d);
+          track('scroll_depth', { event_category: 'engagement', event_label: `${d}%`, value: d });
+        }
+      });
+    }, 150);
+  }, { passive: true });
+
+  // ── 변동 정보 박스 노출 ──
+  const infoBlockEl = document.getElementById('weekly-info');
+  if (infoBlockEl) {
+    const infoObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          track('info_block_view', { event_category: 'engagement' });
+          infoObs.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    infoObs.observe(infoBlockEl);
+  }
+
+  // ── 폼 영역 노출 ──
+  const formSectionEl = document.getElementById('form-section');
+  if (formSectionEl) {
+    const formObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          track('form_view', { event_category: 'form' });
+          formObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    formObs.observe(formSectionEl);
+  }
+
+  // ── 폼 첫 입력 (form_start) ──
+  let formStarted = false;
+  if (formSectionEl) {
+    formSectionEl.addEventListener('input', () => {
+      if (!formStarted) {
+        formStarted = true;
+        track('form_start', { event_category: 'form' });
+      }
+    }, { capture: true });
+  }
+
+  // ── 상단 sticky CTA 클릭 ──
+  const topCtaEl = document.querySelector('.top-cta');
+  if (topCtaEl) {
+    topCtaEl.addEventListener('click', () => {
+      track('top_cta_click', { event_category: 'engagement' });
+    });
+  }
+
+  // ════════════════════════════════════════════════════════════════
+
+  // 약관 보기 토글
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      target.classList.toggle('open');
+      btn.textContent = target.classList.contains('open') ? '닫기' : '보기';
+    });
+  });
+
+  // 전화번호 입력 - 숫자만, 자동 포커스 이동
+  const tel1 = document.getElementById('f_tel1');
+  const tel2 = document.getElementById('f_tel2');
+  const tel3 = document.getElementById('f_tel3');
+  [tel1, tel2, tel3].forEach((el, idx, arr) => {
+    el.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+      if (e.target.value.length >= e.target.maxLength && arr[idx + 1]) {
+        arr[idx + 1].focus();
+      }
+    });
+  });
+
+  // 토스트
+  const toast = document.getElementById('toast');
+  let toastTimer = null;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // ============ Make.com 웹훅 ============
+  const WEBHOOK_URL = 'https://hook.eu2.make.com/creq0obrm8ugya5rffcgx6agqtkshqc1';
+
+  // ============ UTM·Referrer 자동 수집 ============
+  function getQueryParam(name) {
+    return new URLSearchParams(window.location.search).get(name) || '';
+  }
+  const utmData = {
+    utm_source: getQueryParam('utm_source'),
+    utm_medium: getQueryParam('utm_medium'),
+    utm_campaign: getQueryParam('utm_campaign'),
+    referrer: document.referrer || ''
+  };
+
+  // ============ 무료특강 정보 자동 추출 ============
+  // HTML 안의 #w-* span에서 텍스트를 읽어와 페이로드에 포함
+  function getWebinarInfo() {
+    return {
+      webinar_title:    document.getElementById('w-title')?.textContent.trim() || '',
+      webinar_datetime: document.getElementById('w-datetime')?.textContent.trim() || '',
+      webinar_location: document.getElementById('w-location')?.textContent.trim() || '',
+      webinar_fee:      document.getElementById('w-fee')?.textContent.trim() || '',
+      webinar_account:  document.getElementById('w-account')?.textContent.trim() || ''
+    };
+  }
+
+  // ============ 검증 & 제출 ============
+  const submitBtn = document.getElementById('submitBtn');
+  let isSubmitting = false;
+
+  submitBtn.addEventListener('click', async () => {
+    if (isSubmitting) return;
+
+    let valid = true;
+    document.querySelectorAll('.field').forEach(f => f.classList.remove('error'));
+
+    const name = document.getElementById('f_name').value.trim();
+    const t1 = tel1.value.trim();
+    const t2 = tel2.value.trim();
+    const t3 = tel3.value.trim();
+    const trouble = document.getElementById('f_trouble').value.trim();
+    const effort = document.getElementById('f_effort').value.trim();
+    const sourceVal = document.getElementById('f_source').value;
+    const honeypot = document.getElementById('hp_website').value;
+    const agreeTerms = document.getElementById('agree_terms').checked;
+    const agreePrivacy = document.getElementById('agree_privacy').checked;
+
+    if (!name || name.length < 2) {
+      document.querySelector('[data-field="name"]').classList.add('error');
+      valid = false;
+    }
+    if (!t1 || !t2 || !t3 || t2.length < 3 || t3.length < 4) {
+      document.querySelector('[data-field="tel"]').classList.add('error');
+      valid = false;
+    }
+    if (!trouble) {
+      document.querySelector('[data-field="trouble"]').classList.add('error');
+      valid = false;
+    }
+    if (!agreeTerms || !agreePrivacy) {
+      showToast('필수 약관에 동의해주세요.');
+      valid = false;
+    }
+
+    if (!valid) {
+      // 검증 실패 추적 — 어느 필드에서 막히는지 분석
+      const failedFields = [];
+      document.querySelectorAll('.field.error').forEach(f => {
+        if (f.dataset.field) failedFields.push(f.dataset.field);
+      });
+      if (!agreeTerms || !agreePrivacy) failedFields.push('agree');
+      track('form_validation_fail', {
+        event_category: 'form',
+        event_label: failedFields.join(',') || 'unknown',
+        failed_fields: failedFields.join(',')
+      });
+
+      const firstError = document.querySelector('.field.error');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Honeypot 트리거: 봇은 성공 응답만 보여주고 실제 전송 X
+    if (honeypot) {
+      showToast('신청이 접수되었습니다!');
+      return;
+    }
+
+    // ── Make 웹훅 호출 ──
+    isSubmitting = true;
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '신청 처리 중...';
+
+    const payload = {
+      name,
+      phone: `${t1}-${t2}-${t3}`,
+      phone_raw: `${t1}${t2}${t3}`,
+      trouble,
+      effort,
+      source: sourceVal,
+      ...utmData,
+      ...getWebinarInfo(),
+      user_agent: navigator.userAgent,
+      submitted_at: new Date().toISOString()
+    };
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        submitBtn.textContent = '✓ 신청 완료';
+        showToast('신청이 접수되었습니다. 계좌입금 확인 후 줌링크를 보내드립니다!');
+
+        // 폼 초기화
+        document.getElementById('f_name').value = '';
+        tel2.value = '';
+        tel3.value = '';
+        document.getElementById('f_trouble').value = '';
+        document.getElementById('f_effort').value = '';
+        document.getElementById('f_source').value = '';
+        document.getElementById('agree_terms').checked = false;
+        document.getElementById('agree_privacy').checked = false;
+
+        // 전환 이벤트 — Clarity·GA4 양쪽에 동시 전송
+        track('lead_submit', {
+          event_category: 'form',
+          event_label: payload.webinar_title || 'free_webinar',
+          value: 1,
+          source: payload.source || '',
+          utm_source: payload.utm_source || '',
+          utm_campaign: payload.utm_campaign || ''
+        });
+
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          isSubmitting = false;
+        }, 4000);
+      } else {
+        showToast('제출에 실패했습니다. 다시 시도해주세요.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        isSubmitting = false;
+      }
+    } catch (err) {
+      console.error('Submit error:', err);
+      showToast('네트워크 오류입니다. 잠시 후 다시 시도해주세요.');
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      isSubmitting = false;
+    }
+  });
+</script>
+</body>
+</html>
